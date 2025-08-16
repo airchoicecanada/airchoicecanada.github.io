@@ -69,3 +69,6 @@ html.show-fr .lang-fr{display:block}
     flex-wrap: wrap;
   }
 }
+/* Center the hero CTAs on the homepage */
+.hero { text-align: center; }
+.hero .cta { justify-content: center; }

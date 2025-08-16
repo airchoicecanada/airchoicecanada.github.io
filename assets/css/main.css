@@ -49,3 +49,23 @@ html.show-fr .lang-fr{display:block}
 @media (max-width: 1024px){
   .site-header .container{padding-left:1rem;padding-right:1rem}
 }
+/* Mobile: put language toggle on its own line under the menu */
+@media (max-width: 700px) {
+  .site-header .container {
+    flex-wrap: wrap;              /* allow items to wrap to a new line */
+  }
+  .site-header .lang-switch {
+    flex: 0 0 100%;               /* take a full row */
+    order: 3;                     /* appear after brand + nav */
+    margin-left: 0;               /* override desktop auto alignment */
+    padding-top: .25rem;
+    display: flex;
+    gap: .5rem;
+    justify-content: flex-start;  /* align buttons to the left */
+  }
+  /* (optional) slightly tighten nav spacing on mobile */
+  .site-header .site-nav ul {
+    gap: .75rem;
+    flex-wrap: wrap;
+  }
+}

@@ -1,7 +1,7 @@
 title: AirChoice Canada
 description: Canadians for Increased International Airline Choice
 url: "https://airchoicecanada.github.io/"
-baseurl: "https://airchoicecanada.github.io/"
+baseurl: ""
 timezone: America/Toronto
 markdown: kramdown
 theme: minima

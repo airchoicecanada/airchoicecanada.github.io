@@ -44,7 +44,7 @@ permalink: /share-your-story/
 		I give permission to publicly quote a short excerpt.
 	</label>
 
-
+	<br>
     <button class="btn primary" type="submit">Send</button>
   </form>
 </div>
@@ -88,7 +88,8 @@ permalink: /share-your-story/
 		<input type="checkbox" name="permission" value="yes">
 		J’autorise la citation publique d’un court extrait.
 	</label>
-
+	
+	<br>
     <button class="btn primary" type="submit">Envoyer</button>
   </form>
 </div>

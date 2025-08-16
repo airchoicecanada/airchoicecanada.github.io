@@ -40,8 +40,7 @@ permalink: /share-your-story/
     <textarea id="message-en" name="message" required></textarea>
 
     <label>
-      <input type="checkbox" name="permission" value="yes">
-      I give permission to publicly quote a short excerpt.
+      <input type="checkbox" name="permission" value="yes"> I give permission to publicly quote a short excerpt.
     </label>
 
     <button class="btn primary" type="submit">Send</button>
@@ -55,4 +54,38 @@ permalink: /share-your-story/
   <form action="https://api.web3forms.com/submit" method="POST">
     <!-- Web3Forms required -->
     <input type="hidden" name="access_key" value="a4ae7e02-d462-4468-9b0c-0107aa77c634">
-    <input type="hidden" name="subject" v
+    <input type="hidden" name="subject" value="AirChoice — Témoignage (FR)">
+    <!-- Absolute redirect (FR) -->
+    <input type="hidden" name="redirect" value="{{ site.url }}{{ site.baseurl }}/thanks/?lang=fr">
+    <input type="hidden" name="from_name" value="AirChoice Website">
+
+    <!-- Honeypot -->
+    <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+
+    <div class="row">
+      <div>
+        <label for="name-fr">Nom</label>
+        <input id="name-fr" name="name" autocomplete="name" required>
+      </div>
+      <div>
+        <label for="email-fr">Courriel</label>
+        <input id="email-fr" name="email" type="email" autocomplete="email" required>
+      </div>
+    </div>
+
+    <label for="city-fr">Ville</label>
+    <input id="city-fr" name="city" autocomplete="address-level2">
+
+    <label for="subject-fr">Objet</label>
+    <input id="subject-fr" name="topic" placeholder="p. ex. : Halifax vers le Moyen-Orient">
+
+    <label for="message-fr">Votre histoire / Message</label>
+    <textarea id="message-fr" name="message" required></textarea>
+
+    <label>
+      <input type="checkbox" name="permission" value="yes"> J’autorise la citation publique d’un court extrait.
+    </label>
+
+    <button class="btn primary" type="submit">Envoyer</button>
+  </form>
+</div>

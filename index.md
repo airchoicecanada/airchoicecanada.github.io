@@ -9,7 +9,6 @@
     src="{{ '/assets/img/airchoice-logo.png' | relative_url }}"
     alt="AirChoice Canada logo — wordmark with red maple leaf and airplane">
 </p>
-
 </p>
   <div class="lang-en">
     <h1>Canadians for Increased International Airline Choice</h1>

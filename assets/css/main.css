@@ -77,5 +77,5 @@ html.show-fr .lang-fr{display:block}
 .home-logo { max-width: 90%; height: auto; }
 
 @media (min-width: 1024px) {
-  .home-logo { max-width: 1000px; } /* adjust to taste: 200–260px */
+  .home-logo { max-width: 800px; } /* adjust to taste: 200–260px */
 }

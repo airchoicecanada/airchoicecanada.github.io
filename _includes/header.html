@@ -1,0 +1,31 @@
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-logo">✈</span> AirChoice</a>
+
+    <nav class="site-nav" aria-label="Main">
+      <!-- EN -->
+      <div class="lang-en">
+        <ul>
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/data-research/' | relative_url }}">Data & Research</a></li>
+          <li><a href="{{ '/get-involved/' | relative_url }}">Get Involved</a></li>
+          <li><a href="{{ '/press-kit/' | relative_url }}">Press Kit</a></li>
+        </ul>
+      </div>
+      <!-- FR -->
+      <div class="lang-fr">
+        <ul>
+          <li><a href="{{ '/' | relative_url }}">Accueil</a></li>
+          <li><a href="{{ '/data-research/' | relative_url }}">Données et recherche</a></li>
+          <li><a href="{{ '/get-involved/' | relative_url }}">S’impliquer</a></li>
+          <li><a href="{{ '/press-kit/' | relative_url }}">Trousse média</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <nav class="lang-switch" aria-label="Language">
+      <button data-set-lang="en" lang="en" class="lang-btn" aria-pressed="false">EN</button>
+      <button data-set-lang="fr" lang="fr" class="lang-btn" aria-pressed="false">FR</button>
+    </nav>
+  </div>
+</header>

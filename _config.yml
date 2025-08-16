@@ -1,0 +1,27 @@
+title: AirChoice Canada
+description: Canadians for Increased International Airline Choice
+url: "https://airchoicecanada.github.io/"
+baseurl: "https://airchoicecanada.github.io/"
+timezone: America/Toronto
+markdown: kramdown
+theme: minima
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+nav:
+  - title: Home
+    url: https://airchoicecanada.github.io/_site/
+  - title: Data & Research
+    url: https://airchoicecanada.github.io/_site/data-research/
+  - title: Get Involved
+    url: https://airchoicecanada.github.io/_site/get-involved/
+  - title: Press Kit
+    url: https://airchoicecanada.github.io/_site/press-kit/
+
+petition_url: "https://chng.it/yVwXDx77st"
+mailchimp_url: "https://mailchi.mp/89cb1eda10ca/airchoice-mailing-list-signup"
+formspree_endpoint: "https://formspree.io/f/meozdbvv"
+policy_paper_url: "https://drive.google.com/file/d/1l94fxM04K_P8gXf6QyWFrMv452TTdOHm/view?usp=drive_link"
+policy_paper_fr_url: "https://drive.google.com/file/d/1odMcKcQDdhitYtAO9ofEAo_YAY25zk6l/view?usp=drive_link"

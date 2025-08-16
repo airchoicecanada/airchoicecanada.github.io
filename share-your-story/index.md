@@ -2,42 +2,57 @@
 title: Share Your Story
 permalink: /share-your-story/
 ---
+
 <div class="lang-en">
   <h1>Share Your Story</h1>
-  <p>Tell us how limited long‑haul options affect you or your organization. With permission, we may include short quotes in our advocacy.</p>
+  <p>Tell us how limited long-haul options affect you or your organization. With permission, we may include short quotes in our advocacy.</p>
+
+  <form action="https://api.web3forms.com/submit" method="POST">
+    <!-- Web3Forms required -->
+    <input type="hidden" name="access_key" value="a4ae7e02-d462-4468-9b0c-0107aa77c634">
+    <input type="hidden" name="subject" value="AirChoice — Story submission (EN)">
+    <!-- Use absolute redirect so it works on GitHub Pages -->
+    <input type="hidden" name="redirect" value="{{ site.url }}{{ site.baseurl }}/thanks/?lang=en">
+    <!-- Optional helpful metadata -->
+    <input type="hidden" name="from_name" value="AirChoice Website">
+
+    <!-- Honeypot (spam protection) -->
+    <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+
+    <div class="row">
+      <div>
+        <label for="name-en">Name</label>
+        <input id="name-en" name="name" autocomplete="name" required>
+      </div>
+      <div>
+        <label for="email-en">Email</label>
+        <input id="email-en" name="email" type="email" autocomplete="email" required>
+      </div>
+    </div>
+
+    <label for="city-en">City</label>
+    <input id="city-en" name="city" autocomplete="address-level2">
+
+    <label for="subject-en">Subject</label>
+    <input id="subject-en" name="topic" placeholder="e.g., Halifax to Middle East connections">
+
+    <label for="message-en">Story / Message</label>
+    <textarea id="message-en" name="message" required></textarea>
+
+    <label>
+      <input type="checkbox" name="permission" value="yes">
+      I give permission to publicly quote a short excerpt.
+    </label>
+
+    <button class="btn primary" type="submit">Send</button>
+  </form>
 </div>
+
 <div class="lang-fr">
   <h1>Racontez votre histoire</h1>
-  <p>Expliquez‑nous comment les options long‑courriers limitées vous touchent, vous ou votre organisme. Avec votre permission, nous pourrions citer de courts extraits.</p>
-</div>
+  <p>Expliquez comment les options long-courriers limitées vous touchent, vous ou votre organisme. Avec votre permission, nous pourrions citer de courts extraits.</p>
 
-<form
-  data-airchoice-form
-  method="POST"
-  action="{{ site.form_endpoint }}"
-  data-endpoint="{{ site.form_endpoint }}"
-  data-msg-ok="Thanks — your story was sent. / Merci — votre message a été envoyé.">
-
-
-  
-  <div class="row">
-    <div>
-      <label for="name">Name / Nom</label>
-      <input id="name" name="name" required>
-    </div>
-    <div>
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required>
-    </div>
-  </div>
-  <label for="city">City</label>
-  <input id="city" name="city">
-  <label for="subject">Subject</label>
-  <input id="subject" name="subject" placeholder="e.g., Halifax to Middle East connections">
-  <label for="message">Story / Message</label>
-  <textarea id="message" name="message" required></textarea>
-  <label><input type="checkbox" name="permission" value="yes"> I give permission to publicly quote a short excerpt. / J’autorise une courte citation publique.</label>
-  <input type="hidden" name="_subject" value="AirChoice story submission">
-  <div class="form-messages" aria-live="polite"></div>
-  <button class="btn primary" type="submit">Send / Envoyer</button>
-</form>
+  <form action="https://api.web3forms.com/submit" method="POST">
+    <!-- Web3Forms required -->
+    <input type="hidden" name="access_key" value="a4ae7e02-d462-4468-9b0c-0107aa77c634">
+    <input type="hidden" name="subject" v

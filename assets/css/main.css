@@ -72,3 +72,10 @@ html.show-fr .lang-fr{display:block}
 /* Center the hero CTAs on the homepage */
 .hero { text-align: center; }
 .hero .cta { justify-content: center; }
+
+/* Logo: keep mobile size, shrink on desktop */
+.home-logo { max-width: 90%; height: auto; }
+
+@media (min-width: 1024px) {
+  .home-logo { max-width: 220px; } /* adjust to taste: 200–260px */
+}

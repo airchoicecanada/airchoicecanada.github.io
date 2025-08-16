@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://localhost:4000/airchoice1/_site/press-kit/</loc>
+<loc>http://localhost:4000/press-kit/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/airchoice1/_site/share-your-story/</loc>
+<loc>http://localhost:4000/share-your-story/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/airchoice1/_site/thanks/</loc>
+<loc>http://localhost:4000/thanks/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/airchoice1/_site/get-involved/</loc>
+<loc>http://localhost:4000/get-involved/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/airchoice1/_site/</loc>
+<loc>http://localhost:4000/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/airchoice1/_site/data-research/</loc>
+<loc>http://localhost:4000/data-research/</loc>
 </url>
 </urlset>

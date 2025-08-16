@@ -39,9 +39,11 @@ permalink: /share-your-story/
     <label for="message-en">Story / Message</label>
     <textarea id="message-en" name="message" required></textarea>
 
-    <label>
-      <input type="checkbox" name="permission" value="yes"> I give permission to publicly quote a short excerpt.
-    </label>
+    <label class="checkbox">
+		<input type="checkbox" name="permission" value="yes">
+		I give permission to publicly quote a short excerpt.
+	</label>
+
 
     <button class="btn primary" type="submit">Send</button>
   </form>
@@ -82,9 +84,10 @@ permalink: /share-your-story/
     <label for="message-fr">Votre histoire / Message</label>
     <textarea id="message-fr" name="message" required></textarea>
 
-    <label>
-      <input type="checkbox" name="permission" value="yes"> J’autorise la citation publique d’un court extrait.
-    </label>
+	<label class="checkbox">
+		<input type="checkbox" name="permission" value="yes">
+		J’autorise la citation publique d’un court extrait.
+	</label>
 
     <button class="btn primary" type="submit">Envoyer</button>
   </form>

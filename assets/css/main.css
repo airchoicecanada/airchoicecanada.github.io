@@ -84,3 +84,20 @@ html.show-fr .lang-fr{display:block}
 .footer-grid > .left   { justify-self: start; }
 .footer-grid > .center { justify-self: center; text-align: center; }
 .footer-grid > .right  { justify-self: end;   text-align: right; }
+/* Only make text-like inputs full width (not checkboxes/radios) */
+input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+  width: 100%;
+}
+
+/* Nice inline checkbox + text */
+label.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-weight: 400;              /* keep body weight for the line */
+  margin: .75rem 0 .25rem;
+}
+label.checkbox input[type="checkbox"] {
+  width: auto;                   /* override any global width */
+  margin: 0;
+}

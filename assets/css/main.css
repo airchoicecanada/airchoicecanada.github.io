@@ -79,3 +79,8 @@ html.show-fr .lang-fr{display:block}
 @media (min-width: 1024px) {
   .home-logo { max-width: 800px; } /* adjust to taste: 200–260px */
 }
+
+/* Footer column alignment */
+.footer-grid > .left   { justify-self: start; }
+.footer-grid > .center { justify-self: center; text-align: center; }
+.footer-grid > .right  { justify-self: end;   text-align: right; }

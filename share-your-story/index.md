@@ -1,5 +1,5 @@
 ---
-title: Share Your Story
+//title: Share Your Story
 permalink: /share-your-story/
 ---
 

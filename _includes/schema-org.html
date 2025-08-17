@@ -24,18 +24,3 @@
   ]{% endif %}
 }
 </script>
-
-<!-- Optional: WebSite + SearchAction -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "url": {{ site_url | jsonify }},
-  "name": {{ site.brand.name | jsonify }},
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {{ site_url | append: "/search/?q={query}" | jsonify }},
-    "query-input": "required name=query"
-  }
-}
-</script>

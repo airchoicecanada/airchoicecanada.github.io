@@ -83,18 +83,25 @@ permalink: /email-your-mp/
       return;
     }
 
-    const subjectEN = "Support a codeshare-only exemption for secondary Canadian cities";
-    const subjectFR = "Appuyer une dérogation conditionnelle au partage de code pour les villes secondaires";
-    const bodyEN = `Dear ${mp.name ? "MP " + mp.name : "Member of Parliament"},%0D%0A%0D%0A`
-      + `As a constituent (${pcPretty}), I’m asking you to support a narrow, codeshare-only exemption in Canada’s Air Transport Agreements. `
-      + `It would allow foreign airlines to exceed bilateral caps only when flying to designated Canadian secondary cities `
-      + `under a mandatory codeshare with a Canadian carrier. This improves affordability and keeps long-haul traffic in Canada.%0D%0A%0D%0A`
-      + `Thank you for your attention.`;
-    const bodyFR = `Bonjour ${mp.name ? "Monsieur/Madame " + mp.name : "député(e)"},%0D%0A%0D%0A`
-      + `À titre d’électeur (${pcPretty}), je vous demande d’appuyer une dérogation ciblée et conditionnelle au partage de code `
-      + `dans les accords de transport aérien du Canada. Elle permettrait des dessertes au-delà des plafonds bilatéraux uniquement vers des villes secondaires `
-      + `désignées, lorsque les vols sont exploités en partage de code avec une compagnie canadienne.%0D%0A%0D%0A`
-      + `Merci de votre attention.`;
+    // add this helper (optional, but tidy)
+const infoURL = "https://airchoice.ca";
+
+// EN body (append “More info” line)
+const subjectEN = "Support a codeshare-only exemption for secondary Canadian cities";
+const subjectFR = "Appuyer une dérogation conditionnelle au partage de code pour les villes secondaires";
+const bodyEN = `Dear ${mp.name ? "MP " + mp.name : "Member of Parliament"},%0D%0A%0D%0A`
+  + `As a constituent (${pcPretty}), I’m asking you to support a narrow, codeshare-only exemption in Canada’s Air Transport Agreements. `
+  + `It would allow foreign airlines to exceed bilateral caps only when flying to designated Canadian secondary cities `
+  + `under a mandatory codeshare with a Canadian carrier. This improves affordability and keeps long-haul traffic in Canada.%0D%0A%0D%0A`
+  + `Thank you for your attention.%0D%0A%0D%0AMore info: ${infoURL}`;
+
+// FR body (append “Pour en savoir plus” line)
+const bodyFR = `Bonjour ${mp.name ? "Monsieur/Madame " + mp.name : "député(e)"},%0D%0A%0D%0A`
+  + `À titre d’électeur (${pcPretty}), je vous demande d’appuyer une dérogation ciblée et conditionnelle au partage de code `
+  + `dans les accords de transport aérien du Canada. Elle permettrait des dessertes au-delà des plafonds bilatéraux uniquement vers des villes secondaires `
+  + `désignées, lorsque les vols sont exploités en partage de code avec une compagnie canadienne.%0D%0A%0D%0A`
+  + `Merci de votre attention.%0D%0A%0D%0APour en savoir plus : ${infoURL}`;
+
 
     const isFr = document.documentElement.classList.contains('show-fr');
     const subject = encodeURIComponent(isFr ? subjectFR : subjectEN);

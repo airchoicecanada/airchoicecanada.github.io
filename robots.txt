@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://airchoice.ca/sitemap.xml

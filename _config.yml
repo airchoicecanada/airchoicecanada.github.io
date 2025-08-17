@@ -31,3 +31,5 @@ defaults:
       path: ""        # all files
     values:
       image: /assets/img/og/home-1200x630.png
+twitter:
+  username: AirChoiceCanada

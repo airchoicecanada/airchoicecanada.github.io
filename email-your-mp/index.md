@@ -27,12 +27,14 @@ permalink: /email-your-mp/
 
 <script>
 (function(){
-  const API_POSTCODE = "https://represent.opennorth.ca/postcodes/";
+  // Use the dedicated representatives endpoint
+  const API = "https://represent.opennorth.ca/representatives/?format=json&postal_code=";
+
   const resultEl = document.getElementById('mpResult');
   const btn = document.getElementById('lookupBtn');
   const input = document.getElementById('pc');
 
-  // CA postal code regex
+  // Canadian postal code pattern
   const pcRegex = /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i;
 
   function t(en, fr){
@@ -41,38 +43,15 @@ permalink: /email-your-mp/
   }
 
   function normalizePC(v){
-    const s = (v||"").toUpperCase().replace(/\s+/g,'');
-    return s.replace(/^([A-Z]\d[A-Z])(\d[A-Z]\d)$/, '$1 $2');
+    return (v || "").toUpperCase().replace(/\s+/g, "");
   }
 
-  async function fetchMP(prettyPC){
-    // Strategy 1: /postcodes/{pc}/ (works for all levels; filter to federal MP)
-    const url = API_POSTCODE + encodeURIComponent(prettyPC) + "/";
-    const res = await fetch(url, {headers: {"Accept":"application/json"}});
-    if(!res.ok) throw new Error('lookup failed');
-    const data = await res.json();
-
-    const lists = []
-      .concat(data.representatives || [])
-      .concat(data.representatives_centroid || []);
-
-    // Heuristics to pick the federal MP
-    const mp = lists.find(r =>
-      /house of commons/i.test(r.legislature_name || '') ||
-      /parliament/i.test(r.representative_set_name || '') ||
-      /(member of parliament|mp)/i.test(r.elected_office || '')
-    );
-
-    if (!mp) return null;
-
-    return {
-      name: mp.name || "",
-      party: mp.party_name || mp.party || "",
-      district: mp.district_name || mp.electoral_district || mp.area_name || "",
-      email: mp.email || "",
-      phone: (mp.offices && mp.offices[0] && (mp.offices[0].tel || mp.offices[0].telephone)) || "",
-      url: mp.url || (mp.personal_url || "")
-    };
+  function pickMP(list){
+    // Prefer House of Commons / federal MP
+    return (list || []).find(r =>
+      /house of commons/i.test(r.representative_set_name || "") ||
+      /(member of parliament|mp)/i.test(r.elected_office || "")
+    ) || null;
   }
 
   function renderMP(mp, prettyPC){
@@ -96,15 +75,13 @@ permalink: /email-your-mp/
     const bodyEN = `Dear ${mp.name ? "MP " + mp.name : "Member of Parliament"},%0D%0A%0D%0A` +
 `As a constituent (${prettyPC}), I’m asking you to support a narrow, codeshare-only exemption in Canada’s Air Transport Agreements. ` +
 `It would allow foreign airlines to exceed bilateral caps only when flying to designated Canadian secondary cities ` +
-`under a mandatory codeshare with a Canadian carrier. This would improve affordability and keep long-haul traffic in Canada ` +
-`while leaving safety, labour and consumer rules unchanged. %0D%0A%0D%0A` +
+`under a mandatory codeshare with a Canadian carrier. This improves affordability and keeps long-haul traffic in Canada. %0D%0A%0D%0A` +
 `Thank you for your attention.`;
 
     const bodyFR = `Bonjour ${mp.name ? "Monsieur/Madame " + mp.name : "député(e)"},%0D%0A%0D%0A` +
 `À titre d’électeur (${prettyPC}), je vous demande d’appuyer une dérogation ciblée et conditionnelle au partage de code ` +
 `dans les accords de transport aérien du Canada. Elle permettrait des dessertes au-delà des plafonds bilatéraux uniquement vers des villes secondaires ` +
-`désignées, lorsque les vols sont exploités en partage de code avec une compagnie canadienne. Cela améliorerait l’accessibilité tout en gardant ` +
-`le trafic long-courrier au Canada, sans changer les règles de sécurité, de travail ou de protection des consommateurs. %0D%0A%0D%0A` +
+`désignées, lorsque les vols sont exploités en partage de code avec une compagnie canadienne. %0D%0A%0D%0A` +
 `Merci de votre attention.`;
 
     const isFr = document.documentElement.classList.contains('show-fr');
@@ -140,26 +117,32 @@ permalink: /email-your-mp/
 
   btn.addEventListener('click', async () => {
     const raw = input.value.trim();
-    const valid = pcRegex.test(raw);
-    if(!valid){
+    if (!pcRegex.test(raw)) {
       resultEl.hidden = false;
       resultEl.innerHTML = `<div class="notice error">${t("Please enter a valid Canadian postal code (e.g., K1A 0B1).",
                                                            "Veuillez entrer un code postal canadien valide (p. ex. K1A 0B1).")}</div>`;
       return;
     }
-    const pc = normalizePC(raw);
+
+    const pc = normalizePC(raw);                 // e.g., K1A0B1 (no space)
+    const url = API + encodeURIComponent(pc);    // https://…/representatives/?postal_code=K1A0B1
+
     resultEl.hidden = false;
     resultEl.innerHTML = `<div class="notice">${t("Looking up your MP…","Recherche de votre député…")}</div>`;
+
     try{
-      const mp = await fetchMP(pc);
-      renderMP(mp, pc);
+      const res = await fetch(url, { headers: { "Accept": "application/json" } });
+      const json = await res.json();
+      const mp = pickMP(json && json.objects);
+      renderMP(mp, pc.replace(/^([A-Z]\d[A-Z])(\d[A-Z]\d)$/, '$1 $2'));
     }catch(err){
       console.error(err);
-      renderMP(null, pc);
+      renderMP(null);
     }
   });
 })();
 </script>
+
 
 <style>
 /* Minimal styles to look good with your theme */

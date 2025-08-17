@@ -23,6 +23,11 @@ permalink: /email-your-mp/
   </form>
 
   <div id="mpResult" class="mp-result" hidden></div>
+
+  <p class="note">
+    <span class="lang-en">We only open your mail app with a pre-filled draft; we don’t send anything from this website.</span>
+    <span class="lang-fr">Nous ouvrons simplement votre application de courriel avec un brouillon prérempli; rien n’est envoyé depuis ce site.</span>
+  </p>
 </section>
 
 <script>
@@ -31,13 +36,18 @@ permalink: /email-your-mp/
   const btn = document.getElementById('lookupBtn');
   const input = document.getElementById('pc');
 
+  // CC address (falls back to info@airchoice.ca if not set in _config.yml -> brand.email)
+  const ccAddress = "{{ site.brand.email | default: 'info@airchoice.ca' }}";
+
+  // Brand/site link appended to the email body
+  const infoURL = "https://airchoice.ca";
+
+  // Valid Canadian postal code (FSAs without D, F, I, O, Q, U)
   const pcRegex = /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i;
 
-  // i18n helper (uses your html.show-fr flag)
   const t = (en, fr) => document.documentElement.classList.contains('show-fr') ? fr : en;
-
-  const normalizePC = v => (v || '').toUpperCase().replace(/\s+/g,''); // “K1A0B1”
-  const prettyPC = v => v.replace(/^([A-Z]\d[A-Z])(\d[A-Z]\d)$/, '$1 $2'); // “K1A 0B1”
+  const normalizePC = v => (v||'').toUpperCase().replace(/\s+/g,'');                // K1A0B1
+  const prettyPC    = v => v.replace(/^([A-Z]\d[A-Z])(\d[A-Z]\d)$/,'$1 $2');        // K1A 0B1
 
   const pickMP = list => (list || []).find(r =>
     /house of commons/i.test(r.representative_set_name || '') ||
@@ -45,6 +55,7 @@ permalink: /email-your-mp/
   ) || null;
 
   async function lookupByPostcode(pc) {
+    // 1) Try postcode endpoint (includes centroid/concordance reps)
     const url = `https://represent.opennorth.ca/postcodes/${encodeURIComponent(pc)}/`;
     const res = await fetch(url, { headers: { 'Accept':'application/json' }});
     if (!res.ok) throw new Error('postcode lookup failed');
@@ -56,7 +67,7 @@ permalink: /email-your-mp/
 
     let mp = pickMP(reps);
 
-    // Fallback: resolve by point (lat,lng) straight to House of Commons set
+    // 2) Fallback: resolve via coordinates to the House of Commons set
     if (!mp && data.centroid && Array.isArray(data.centroid.coordinates)) {
       const [lng, lat] = data.centroid.coordinates;
       const pointUrl = `https://represent.opennorth.ca/representatives/house-of-commons/?point=${lat},${lng}`;
@@ -83,31 +94,30 @@ permalink: /email-your-mp/
       return;
     }
 
-    // add this helper (optional, but tidy)
-const infoURL = "https://airchoice.ca";
+    const subjectEN = "Support a codeshare-only exemption for secondary Canadian cities";
+    const subjectFR = "Appuyer une dérogation conditionnelle au partage de code pour les villes secondaires";
 
-// EN body (append “More info” line)
-const subjectEN = "Support a codeshare-only exemption for secondary Canadian cities";
-const subjectFR = "Appuyer une dérogation conditionnelle au partage de code pour les villes secondaires";
-const bodyEN = `Dear ${mp.name ? "MP " + mp.name : "Member of Parliament"},%0D%0A%0D%0A`
-  + `As a constituent (${pcPretty}), I’m asking you to support a narrow, codeshare-only exemption in Canada’s Air Transport Agreements. `
-  + `It would allow foreign airlines to exceed bilateral caps only when flying to designated Canadian secondary cities `
-  + `under a mandatory codeshare with a Canadian carrier. This improves affordability and keeps long-haul traffic in Canada.%0D%0A%0D%0A`
-  + `Thank you for your attention.%0D%0A%0D%0AMore info: ${infoURL}`;
+    const bodyEN = `Dear ${mp.name ? "MP " + mp.name : "Member of Parliament"},%0D%0A%0D%0A`
+      + `As a constituent (${pcPretty}), I’m asking you to support a narrow, codeshare-only exemption in Canada’s Air Transport Agreements. `
+      + `It would allow foreign airlines to exceed bilateral caps only when flying to designated Canadian secondary cities `
+      + `under a mandatory codeshare with a Canadian carrier. This improves affordability and keeps long-haul traffic in Canada.%0D%0A%0D%0A`
+      + `Thank you for your attention.%0D%0A%0D%0AMore info: ${infoURL}`;
 
-// FR body (append “Pour en savoir plus” line)
-const bodyFR = `Bonjour ${mp.name ? "Monsieur/Madame " + mp.name : "député(e)"},%0D%0A%0D%0A`
-  + `À titre d’électeur (${pcPretty}), je vous demande d’appuyer une dérogation ciblée et conditionnelle au partage de code `
-  + `dans les accords de transport aérien du Canada. Elle permettrait des dessertes au-delà des plafonds bilatéraux uniquement vers des villes secondaires `
-  + `désignées, lorsque les vols sont exploités en partage de code avec une compagnie canadienne.%0D%0A%0D%0A`
-  + `Merci de votre attention.%0D%0A%0D%0APour en savoir plus : ${infoURL}`;
-
+    const bodyFR = `Bonjour ${mp.name ? "Monsieur/Madame " + mp.name : "député(e)"},%0D%0A%0D%0A`
+      + `À titre d’électeur (${pcPretty}), je vous demande d’appuyer une dérogation ciblée et conditionnelle au partage de code `
+      + `dans les accords de transport aérien du Canada. Elle permettrait des dessertes au-delà des plafonds bilatéraux uniquement vers des villes secondaires `
+      + `désignées, lorsque les vols sont exploités en partage de code avec une compagnie canadienne.%0D%0A%0D%0A`
+      + `Merci de votre attention.%0D%0A%0D%0APour en savoir plus : ${infoURL}`;
 
     const isFr = document.documentElement.classList.contains('show-fr');
     const subject = encodeURIComponent(isFr ? subjectFR : subjectEN);
-    const body = isFr ? bodyFR : bodyEN;
+    const body    = isFr ? bodyFR : bodyEN;
 
-    const mailto = `mailto:${encodeURIComponent(mp.email || "")}?subject=${subject}&body=${body}`;
+    // *** CC added here ***
+    const mailto =
+      `mailto:${encodeURIComponent(mp.email || "")}`
+      + `?cc=${encodeURIComponent(ccAddress)}`
+      + `&subject=${subject}&body=${body}`;
 
     resultEl.hidden = false;
     resultEl.innerHTML = `
@@ -133,34 +143,37 @@ const bodyFR = `Bonjour ${mp.name ? "Monsieur/Madame " + mp.name : "député(e)"
     const raw = input.value.trim();
     if (!pcRegex.test(raw)) {
       resultEl.hidden = false;
-      resultEl.innerHTML = `<div class="notice error">${t("Please enter a valid Canadian postal code (e.g., K1A 0B1).","Veuillez entrer un code postal canadien valide (p. ex. K1A 0B1).")}</div>`;
+      resultEl.innerHTML = `<div class="notice error">${t("Please enter a valid Canadian postal code (e.g., K1A 0B1).",
+                                                           "Veuillez entrer un code postal canadien valide (p. ex. K1A 0B1).")}</div>`;
       return;
     }
     const pc = normalizePC(raw);
     resultEl.hidden = false;
     resultEl.innerHTML = `<div class="notice">${t("Looking up your MP…","Recherche de votre député…")}</div>`;
+    btn.disabled = true; btn.dataset.loading = "1";
     try {
       const { mp, pcPretty } = await lookupByPostcode(pc);
       render(mp, pcPretty);
     } catch (e) {
       console.error(e);
       render(null);
+    } finally {
+      btn.disabled = false; btn.dataset.loading = "";
     }
   });
 })();
 </script>
 
-
-
-
 <style>
-/* Minimal styles to look good with your theme */
+/* Minimal styles that play nicely with your theme */
 .mp-lookup { display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0 1rem }
 .mp-lookup input { width:14ch; text-transform:uppercase; font-weight:600; letter-spacing:.05em }
-.notice { padding:.75rem 1rem; background:#f5f5f5; border-radius:.5rem; }
-.notice.error { background:#ffe9e9; }
-.mp-card { display:grid; gap:1rem; grid-template-columns: 1fr auto; align-items:center; padding:1rem; border:1px solid #e5e5e5; border-radius:.75rem; }
-@media (max-width:700px){ .mp-card{ grid-template-columns: 1fr; } }
-.btn.primary { text-decoration:none; }
-.sr-only { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.notice { padding:.75rem 1rem; background:#f5f5f5; border-radius:.5rem }
+.notice.error { background:#ffe9e9 }
+.mp-card { display:grid; gap:1rem; grid-template-columns: 1fr auto; align-items:center; padding:1rem; border:1px solid #e5e5e5; border-radius:.75rem }
+@media (max-width:700px){ .mp-card{ grid-template-columns: 1fr } }
+#lookupBtn[data-loading]:after{ content:"…"; margin-left:.35rem; animation:pulse 1s infinite }
+@keyframes pulse { 0%{opacity:.4} 50%{opacity:1} 100%{opacity:.4} }
+.sr-only { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden }
+.note { margin-top:.5rem; font-size:.95em; opacity:.8 }
 </style>

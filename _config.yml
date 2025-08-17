@@ -37,7 +37,7 @@ twitter:
 
 brand:
   name: "AirChoice Canada"
-  logo: "/assets/img/airchoice-logo-512.png"   # ≥112×112 PNG/SVG
+  logo: "/assets/img/airchoice-logo-512.png"
   email: "info@airchoice.ca"
   same_as:
     - "https://x.com/AirChoiceCanada"

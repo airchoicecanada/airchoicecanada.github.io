@@ -1,0 +1,9 @@
+SiteBuilder: Jekyll
+Host: GitHub
+Email: Gmail
+Files: google drive/docs
+Mail-list: Mail Chimp
+Petition: Change.org
+Webform: web3forms
+Domain: Porkbun
+Email outbound: Brevo

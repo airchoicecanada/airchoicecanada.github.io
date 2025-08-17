@@ -1,6 +1,6 @@
 title: AirChoice Canada
 description: Canadians for Increased International Airline Choice
-url: "airchoicecanada.github.io"
+url: "https://airchoice.ca"
 baseurl: ""
 timezone: America/Toronto
 markdown: kramdown
@@ -12,13 +12,13 @@ plugins:
 
 nav:
   - title: Home
-    url: airchoicecanada.github.io
+    url: /
   - title: Data & Research
-    url: airchoicecanada.github.io/data-research/
+    url: /data-research/
   - title: Get Involved
-    url: airchoicecanada.github.io/get-involved/
+    url: /get-involved/
   - title: Press Kit
-    url: airchoicecanada.github.io/press-kit/
+    url: /press-kit/
 
 petition_url: "https://chng.it/yVwXDx77st"
 mailchimp_url: "https://mailchi.mp/89cb1eda10ca/airchoice-mailing-list-signup"

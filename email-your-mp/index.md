@@ -92,7 +92,57 @@ permalink: /email-your-mp/
       + `Thank you for your attention.`;
     const bodyFR = `Bonjour ${mp.name ? "Monsieur/Madame " + mp.name : "député(e)"},%0D%0A%0D%0A`
       + `À titre d’électeur (${pcPretty}), je vous demande d’appuyer une dérogation ciblée et conditionnelle au partage de code `
-      + `dans les accords de transport aérien du Canada. Elle permettrait des dessertes au-delà des plafonds bilatéraux uniqu
+      + `dans les accords de transport aérien du Canada. Elle permettrait des dessertes au-delà des plafonds bilatéraux uniquement vers des villes secondaires `
+      + `désignées, lorsque les vols sont exploités en partage de code avec une compagnie canadienne.%0D%0A%0D%0A`
+      + `Merci de votre attention.`;
+
+    const isFr = document.documentElement.classList.contains('show-fr');
+    const subject = encodeURIComponent(isFr ? subjectFR : subjectEN);
+    const body = isFr ? bodyFR : bodyEN;
+
+    const mailto = `mailto:${encodeURIComponent(mp.email || "")}?subject=${subject}&body=${body}`;
+
+    resultEl.hidden = false;
+    resultEl.innerHTML = `
+      <div class="mp-card">
+        <div class="mp-main">
+          <h3>${mp.name || t("Member of Parliament","Député(e)")}</h3>
+          <p>
+            ${mp.party_name ? `<strong>${mp.party_name}</strong> · ` : ""}${mp.district_name || ""}
+            ${mp.email ? `<br><a href="mailto:${mp.email}">${mp.email}</a>` : ""}
+            ${(mp.offices && mp.offices[0] && mp.offices[0].tel) ? `<br>${mp.offices[0].tel}` : ""}
+            ${mp.url ? `<br><a href="${mp.url}" target="_blank" rel="noopener">${t("Website","Site web")}</a>` : ""}
+          </p>
+        </div>
+        <div class="mp-actions">
+          ${mp.email ? `<a class="btn primary" href="${mailto}">${t("Compose Email","Écrire un courriel")}</a>`
+                     : `<div class="notice">${t("No email found. Use the website link above or call the constituency office.",
+                                               "Aucun courriel trouvé. Utilisez le site web ci-dessus ou téléphonez au bureau de circonscription.")}</div>`}
+        </div>
+      </div>`;
+  }
+
+  btn.addEventListener('click', async () => {
+    const raw = input.value.trim();
+    if (!pcRegex.test(raw)) {
+      resultEl.hidden = false;
+      resultEl.innerHTML = `<div class="notice error">${t("Please enter a valid Canadian postal code (e.g., K1A 0B1).","Veuillez entrer un code postal canadien valide (p. ex. K1A 0B1).")}</div>`;
+      return;
+    }
+    const pc = normalizePC(raw);
+    resultEl.hidden = false;
+    resultEl.innerHTML = `<div class="notice">${t("Looking up your MP…","Recherche de votre député…")}</div>`;
+    try {
+      const { mp, pcPretty } = await lookupByPostcode(pc);
+      render(mp, pcPretty);
+    } catch (e) {
+      console.error(e);
+      render(null);
+    }
+  });
+})();
+</script>
+
 
 
 

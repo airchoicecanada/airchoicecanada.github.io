@@ -31,5 +31,19 @@ defaults:
       path: ""        # all files
     values:
       image: /assets/img/og/home-1200x630.png
+
 twitter:
   username: AirChoiceCanada
+
+brand:
+  name: "AirChoice Canada"
+  logo: "/assets/img/airchoice-logo-512.png"   # ≥112×112 PNG/SVG
+  email: "info@airchoice.ca"
+  same_as:
+    - "https://x.com/AirChoiceCanada"
+    
+  contact_points:
+    - contactType: "media relations"
+      email: "info@airchoice.ca"
+      availableLanguage: ["en","fr"]
+      areaServed: "CA"

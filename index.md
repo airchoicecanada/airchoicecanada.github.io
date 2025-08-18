@@ -2,9 +2,6 @@
 //title: Home
 ---
 <section class="hero">
-<p style="margin:0 0 1rem; text-align:center;">
-  <p style="margin:0 0 1rem; text-align:center;">
-<section class="hero">
   <div style="text-align:center; margin:0 0 1rem;">
     <picture>
       <source srcset="{{ '/assets/img/airchoice-logo.avif' | relative_url }}" type="image/avif">
@@ -17,6 +14,7 @@
         decoding="async" fetchpriority="high">
     </picture>
   </div>
+
   <div class="lang-en">
     <h1>Canadians for Increased International Airline Choice</h1>
     <p>Unlocking direct long‑haul links from secondary Canadian cities—<strong>only under a mandatory codeshare with a Canadian airline</strong>—to global hubs. Targets include Manila, Panama City, Casablanca, Istanbul, Doha, and Dubai.</p>
@@ -66,34 +64,26 @@
     <p>Voyez comment ce changement réglementaire peut ouvrir de nouvelles liaisons internationales à partir de villes secondaires.</p>
   </div>
 
-  <p>
-<!-- clickable preview -->
-<a href="#map-modal" class="map-zoom" aria-label="Enlarge route map">
-  <picture>
-    <source srcset="{{ '/assets/img/route-map.avif' | relative_url }}" type="image/avif">
-    <source srcset="{{ '/assets/img/route-map.png'  | relative_url }}" type="image/png">
-    <img
-      class="route-map"
-      src="{{ '/assets/img/route-map.png' | relative_url }}"
-      alt="Potential routes map"
-      width="80%"
-      loading="lazy" decoding="async">
-  </picture>
-</a>
+  <div class="map-wrap">
+    <!-- clickable preview -->
+    <a href="#map-modal" class="map-zoom" aria-label="Enlarge route map">
+      <picture>
+        <source srcset="{{ '/assets/img/route-map.avif' | relative_url }}" type="image/avif">
+        <source srcset="{{ '/assets/img/route-map.png'  | relative_url }}" type="image/png">
+        <img
+          class="route-map"
+          src="{{ '/assets/img/route-map.png' | relative_url }}"
+          alt="Potential routes map"
+          loading="lazy" decoding="async">
+      </picture>
+    </a>
+  </div>
 
-<!-- full-screen lightbox (click anywhere to close) -->
-<a id="map-modal" class="lightbox" href="#" aria-modal="true" role="dialog">
-  <picture>
-    <source srcset="{{ '/assets/img/route-map.avif' | relative_url }}" type="image/avif">
-    <img
-      src="{{ '/assets/img/route-map.png' | relative_url }}"
-      alt="Potential routes map — enlarged"
-      width="1600" height="708">
-  </picture>
-</a>
-
-
-
-
-  </p>
+  <!-- full-screen lightbox (tap/click anywhere to close) -->
+  <a id="map-modal" class="lightbox" href="#" aria-modal="true" role="dialog">
+    <picture>
+      <source srcset="{{ '/assets/img/route-map.avif' | relative_url }}" type="image/avif">
+      <img src="{{ '/assets/img/route-map.png' | relative_url }}" alt="Potential routes map — enlarged">
+    </picture>
+  </a>
 </section>

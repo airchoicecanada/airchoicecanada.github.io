@@ -101,3 +101,36 @@ label.checkbox input[type="checkbox"] {
   width: auto;                   /* override any global width */
   margin: 0;
 }
+/* 1) Make images responsive everywhere */
+picture, img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 2) Constrain the hero logo */
+.hero picture,
+.hero img.brand-logo {
+  display: block;
+  margin-inline: auto;
+  max-width: 680px;   /* desktop cap */
+}
+@media (max-width: 600px) {
+  .hero picture,
+  .hero img.brand-logo {
+    max-width: 80vw;  /* smaller than viewport on mobile */
+  }
+}
+
+/* 3) Constrain the route map block */
+#potential-routes picture,
+#potential-routes img.route-map {
+  display: block;
+  margin: .5rem auto;
+  max-width: 960px;   /* desktop cap */
+}
+@media (max-width: 600px) {
+  #potential-routes picture,
+  #potential-routes img.route-map {
+    max-width: 92vw;  /* breathe on mobile */
+  }
+}

@@ -163,3 +163,44 @@ body:has(.lightbox:target) { overflow: hidden; }
 /* General responsive image safety (if not already present) */
 picture, img { max-width: 100%; height: auto; }
 
+/* Prevent the overlay from making the page wider than the viewport */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.85);
+
+  /* The key bits ↓ */
+  padding: clamp(12px, 4vw, 24px);
+  box-sizing: border-box;       /* include padding inside 100vw/100vh */
+  max-width: 100vw;             /* never exceed viewport width */
+  max-height: 100vh;            /* never exceed viewport height */
+  overflow: auto;               /* allow panning if image is still large */
+}
+
+.lightbox:target { display: flex; }
+
+/* Image sizing inside the modal */
+.lightbox picture,
+.lightbox img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+}
+
+/* Lock background scroll while the modal is open (mobile-friendly) */
+html:has(.lightbox:target),
+body:has(.lightbox:target) {
+  overflow: hidden;
+}
+
+/* Optional: remove the “Tap to enlarge” helper on very small screens
+   if you added it and it causes wrapping */
+@media (max-width: 360px){
+  .map-zoom::after { display: none; }
+}

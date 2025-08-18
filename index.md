@@ -10,7 +10,7 @@
         class="brand-logo"
         src="{{ '/assets/img/airchoice-logo.png' | relative_url }}"
         alt="AirChoice Canada"
-        width="800" height="534"
+        width="80%"
         decoding="async" fetchpriority="high">
     </picture>
   </div>
@@ -74,6 +74,7 @@
           class="route-map"
           src="{{ '/assets/img/route-map.png' | relative_url }}"
           alt="Potential routes map"
+		  width="80%"
           loading="lazy" decoding="async">
       </picture>
     </a>

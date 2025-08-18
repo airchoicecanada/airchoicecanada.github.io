@@ -4,10 +4,16 @@
 <section class="hero">
 <p style="margin:0 0 1rem; text-align:center;">
   <p style="margin:0 0 1rem; text-align:center;">
+  <picture>
+  <source type="image/avif" srcset="{{ '/assets/img/airchoice-logo.avif' | relative_url }}" />
   <img
-    class="home-logo"
-    src="{{ '/assets/img/airchoice-logo.png' | relative_url }}"
-    alt="AirChoice Canada logo — wordmark with red maple leaf and airplane">
+    src="{{ '/assets/img/airchoice-logo.png' | relative_url }}"  <!-- fallback -->
+    alt="AirChoice Canada"
+    width="800" height="534"
+    decoding="async"
+    fetchpriority="high" />
+</picture>
+
 </p>
 </p>
   <div class="lang-en">
@@ -60,10 +66,15 @@
   </div>
 
   <p>
-    <img
-      class="full"
-      src="{{ '/assets/img/route-map.png' | relative_url }}"
-      alt="Map illustrating potential international routes enabled from Canadian secondary cities"
-      loading="lazy">
+<picture>
+  <source type="image/avif" srcset="{{ '/assets/img/route-map.avif' | relative_url }}" />
+  <img
+    src="{{ '/assets/img/route-map.png' | relative_url }}"  <!-- fallback -->
+    alt="Map illustrating potential routes"
+    width="1000" height="443"
+    loading="lazy"
+    decoding="async" />
+</picture>
+
   </p>
 </section>

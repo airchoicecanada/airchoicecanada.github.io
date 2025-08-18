@@ -80,5 +80,20 @@
       loading="lazy" decoding="async">
   </picture>
 </a>
+
+<!-- full-screen lightbox (click anywhere to close) -->
+<a id="map-modal" class="lightbox" href="#" aria-modal="true" role="dialog">
+  <picture>
+    <source srcset="{{ '/assets/img/route-map.avif' | relative_url }}" type="image/avif">
+    <img
+      src="{{ '/assets/img/route-map.png' | relative_url }}"
+      alt="Potential routes map — enlarged"
+      width="1600" height="708">
+  </picture>
+</a>
+
+
+
+
   </p>
 </section>

@@ -76,7 +76,7 @@
       class="route-map"
       src="{{ '/assets/img/route-map.png' | relative_url }}"
       alt="Potential routes map"
-      width="1000" height="443"
+      width="80%"
       loading="lazy" decoding="async">
   </picture>
 </a>

@@ -20,7 +20,7 @@ permalink: /get-involved/
   </a>
 
   <a class="cta-card" href="{{ '/share-your-story/' | relative_url }}">
-    <img src="{{ '/assets/img/share-story.png' | relative_url }}" alt="Share Your Story" width="150" height="150 loading="lazy" decoding="async">
+    <img src="{{ '/assets/img/share-story.png' | relative_url }}" alt="Share Your Story" width="150" height="150" loading="lazy" decoding="async">
     <div class="lang-en"><h3>Share Your Story</h3></div>
     <div class="lang-fr"><h3>Racontez votre histoire</h3></div>
   </a>

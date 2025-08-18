@@ -117,7 +117,7 @@ picture, img {
 @media (max-width: 600px) {
   .hero picture,
   .hero img.brand-logo {
-    max-width: 80vw;  /* smaller than viewport on mobile */
+    max-width: 70vw;  /* smaller than viewport on mobile */
   }
 }
 
@@ -131,6 +131,6 @@ picture, img {
 @media (max-width: 600px) {
   #potential-routes picture,
   #potential-routes img.route-map {
-    max-width: 92vw;  /* breathe on mobile */
+    max-width: 80vw;  /* breathe on mobile */
   }
 }

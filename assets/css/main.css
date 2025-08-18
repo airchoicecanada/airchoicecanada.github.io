@@ -128,7 +128,7 @@ picture, img {
   margin: .5rem auto;
   max-width: 960px;   /* desktop cap */
 }
-@media (max-width: 80%) {
+@media (max-width: 95%) {
   #potential-routes picture,
   #potential-routes img.route-map {
     max-width: 70vw;  /* breathe on mobile */

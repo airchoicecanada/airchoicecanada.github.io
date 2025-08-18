@@ -134,3 +134,32 @@ picture, img {
     max-width: 70vw;  /* breathe on mobile */
   }
 }
+/* Clickable preview */
+.map-zoom { display:block; cursor: zoom-in; }
+@media (max-width: 700px){
+  .map-zoom::after{
+    content: "Tap to enlarge";
+    display:block; text-align:center; font-size:.9rem; opacity:.75; margin-top:.25rem;
+  }
+}
+
+/* Full-screen lightbox (CSS :target) */
+.lightbox {
+  position: fixed; inset: 0; z-index: 9999;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(0,0,0,.85); padding: 4vw;
+}
+.lightbox:target { display: flex; }
+
+/* Big image sizing inside the modal */
+.lightbox picture, .lightbox img {
+  max-width: 100%; max-height: 100%; height: auto; width: auto;
+  border-radius: 8px; box-shadow: 0 12px 40px rgba(0,0,0,.35);
+}
+
+/* Prevent background scroll while open (supported on modern mobile/desktop) */
+body:has(.lightbox:target) { overflow: hidden; }
+
+/* General responsive image safety (if not already present) */
+picture, img { max-width: 100%; height: auto; }
+

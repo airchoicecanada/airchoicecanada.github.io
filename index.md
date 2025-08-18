@@ -67,16 +67,31 @@
   </div>
 
   <p>
-<picture>
-  <source srcset="{{ '/assets/img/route-map.avif' | relative_url }}" type="image/avif">
-  <source srcset="{{ '/assets/img/route-map.png'  | relative_url }}" type="image/png">
-  <img
-    class="route-map"
-    src="{{ '/assets/img/route-map.png' | relative_url }}"
-    alt="Potential routes map"
-    width="1000" height="443"
-    loading="lazy" decoding="async">
-</picture>
+<!-- clickable preview -->
+<a href="#map-modal" class="map-zoom" aria-label="Enlarge route map">
+  <picture>
+    <source srcset="{{ '/assets/img/route-map.avif' | relative_url }}" type="image/avif">
+    <source srcset="{{ '/assets/img/route-map.png'  | relative_url }}" type="image/png">
+    <img
+      class="route-map"
+      src="{{ '/assets/img/route-map.png' | relative_url }}"
+      alt="Potential routes map"
+      width="1000" height="443"
+      loading="lazy" decoding="async">
+  </picture>
+</a>
+
+<!-- full-screen lightbox (click anywhere to close) -->
+<a id="map-modal" class="lightbox" href="#" aria-modal="true" role="dialog">
+  <picture>
+    <source srcset="{{ '/assets/img/route-map.avif' | relative_url }}" type="image/avif">
+    <img
+      src="{{ '/assets/img/route-map.png' | relative_url }}"
+      alt="Potential routes map — enlarged"
+      width="1600" height="708">
+  </picture>
+</a>
+
 
 
 

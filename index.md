@@ -4,15 +4,19 @@
 <section class="hero">
 <p style="margin:0 0 1rem; text-align:center;">
   <p style="margin:0 0 1rem; text-align:center;">
-  <picture>
-  <source type="image/avif" srcset="{{ '/assets/img/airchoice-logo.avif' | relative_url }}" />
+<picture>
+  <!-- 1) Modern -->
+  <source srcset="{{ '/assets/img/airchoice-logo.avif' | relative_url }}" type="image/avif">
+  <!-- 2) Explicit PNG source as an extra guard -->
+  <source srcset="{{ '/assets/img/airchoice-logo.png' | relative_url }}" type="image/png">
+  <!-- 3) Fallback <img> (same PNG path) -->
   <img
-    src="{{ '/assets/img/airchoice-logo.png' | relative_url }}"  <!-- fallback -->
+    src="{{ '/assets/img/airchoice-logo.png' | relative_url }}"
     alt="AirChoice Canada"
     width="800" height="534"
-    decoding="async"
-    fetchpriority="high" />
+    decoding="async" fetchpriority="high">
 </picture>
+
 
 </p>
 </p>
@@ -67,14 +71,15 @@
 
   <p>
 <picture>
-  <source type="image/avif" srcset="{{ '/assets/img/route-map.avif' | relative_url }}" />
+  <source srcset="{{ '/assets/img/route-map.avif' | relative_url }}" type="image/avif">
+  <source srcset="{{ '/assets/img/route-map.png' | relative_url }}" type="image/png">
   <img
-    src="{{ '/assets/img/route-map.png' | relative_url }}"  <!-- fallback -->
-    alt="Map illustrating potential routes"
+    src="{{ '/assets/img/route-map.png' | relative_url }}"
+    alt="Potential routes map"
     width="1000" height="443"
-    loading="lazy"
-    decoding="async" />
+    loading="lazy" decoding="async">
 </picture>
+
 
   </p>
 </section>

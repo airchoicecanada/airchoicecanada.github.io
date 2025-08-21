@@ -17,9 +17,18 @@ permalink: /data-research/
   </ul>
 
   <p><strong>Read the policy paper:</strong>
-    <a href="{{ site.policy_paper_url }}" target="_blank" rel="noopener">
+    <a href="{{ site.policy_paper_url }}" target="_blank" rel="noopener" onclick="trackPDFClick('Policy Brief', 'data-analysis')">
       Secondary City Exemption — Policy Brief (Google Drive)
     </a>
+<script>
+function trackPDFClick(pdfName, sourceLocation) {
+  gtag('event', 'pdf_download', {
+    'pdf_name': pdfName,
+    'source_location': sourceLocation,
+    'link_url': event.target.href
+  });
+}
+</script>
   </p>
 </div>
 

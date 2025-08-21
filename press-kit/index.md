@@ -42,7 +42,7 @@ permalink: /press-kit/
 
   <h2>Backgrounder & data</h2>
   <ul>
-    <li><a href="{{ site.policy_paper_url }}" target="_blank" rel="noopener">Policy paper (Google Drive)</a></li>
+    <li><a href="{{ site.policy_paper_url }}" target="_blank" rel="noopener" onclick="trackPDFClick('Policy Brief', 'press-kit')">Policy paper (Google Drive)</a></li>
     <li><a href="{{ '/data-research/' | relative_url }}">Data &amp; Research (methodology, upcoming datasets)</a></li>
   </ul>
 
@@ -65,7 +65,15 @@ permalink: /press-kit/
   <p><strong>Danish Hussain</strong> — a Canadian traveler and consumer advocate.</p>
   <p><strong>Media:</strong> <a href="mailto:info@airchoice.ca">info@airchoice.ca</a> · <a href="https://x.com/AirChoiceCanada" target="_blank" rel="noopener">@AirChoiceCanada</a></p>
 </div>
-
+<script>
+function trackPDFClick(pdfName, sourceLocation) {
+  gtag('event', 'pdf_download', {
+    'pdf_name': pdfName,
+    'source_location': sourceLocation,
+    'link_url': event.target.href
+  });
+}
+</script>
 <div class="lang-fr">
   <h1>Trousse média</h1>
 
@@ -106,7 +114,7 @@ permalink: /press-kit/
 
   <h2>Contexte & données</h2>
   <ul>
-    <li><a href="{{ site.policy_paper_fr_url | default: site.policy_paper_url }}" target="_blank" rel="noopener">Note de politique (Google Drive)</a></li>
+    <li><a href="{{ site.policy_paper_fr_url | default: site.policy_paper_url }}" target="_blank" rel="noopener" onclick="trackPDFClick('Policy Brief FR', 'press-kit')">Note de politique (Google Drive)</a></li>
     <li><a href="{{ '/data-research/' | relative_url }}">Données &amp; recherche (méthodologie, jeux de données à venir)</a></li>
   </ul>
 

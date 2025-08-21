@@ -20,6 +20,9 @@ permalink: /data-research/
     <a href="{{ site.policy_paper_url }}" target="_blank" rel="noopener" onclick="trackPDFClick('Policy Brief', 'data-analysis')">
       Secondary City Exemption — Policy Brief (Google Drive)
     </a>
+
+  </p>
+</div>
 <script>
 function trackPDFClick(pdfName, sourceLocation) {
   gtag('event', 'pdf_download', {
@@ -29,9 +32,6 @@ function trackPDFClick(pdfName, sourceLocation) {
   });
 }
 </script>
-  </p>
-</div>
-
 <div class="lang-fr">
   <h1>Données et recherche</h1>
   <p>Nous compilons des données de liaisons et la demande de passagers pour des corridors long-courriers au départ de villes secondaires. Cela comprend la fuite vers des hubs américains, la saisonnalité, des bases de tarifs et de temps de trajet, ainsi que des indicateurs de préparation aéroportuaire. Nous publierons ici les jeux de données et visuels au fur et à mesure.</p>
@@ -46,7 +46,7 @@ function trackPDFClick(pdfName, sourceLocation) {
   </ul>
 
   <p><strong>Lire la note de politique&nbsp;:</strong>
-    <a href="{{ site.policy_paper_fr_url }}" target="_blank" rel="noopener">
+    <a href="{{ site.policy_paper_fr_url }}" target="_blank" rel="noopener" onclick="trackPDFClick('Policy Brief FR', 'data-analysis')">
       Exemption pour villes secondaires — Mémo (Google Drive)
     </a>
   </p>

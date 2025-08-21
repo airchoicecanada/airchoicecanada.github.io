@@ -51,3 +51,46 @@ function trackPDFClick(pdfName, sourceLocation) {
     </a>
   </p>
 </div>
+<!-- AUS example English Version -->
+<div class="policy-example" lang="en">
+  <h3>Australia's "Open Access to Regional Airports" (10-line explainer)</h3>
+  <ul>
+    <li>In many air-services agreements, Australia caps capacity at <strong>four gateways (Sydney, Melbourne, Brisbane, Perth)</strong> but offers <strong>unrestricted access</strong> to <em>all other</em> international airports ("<strong>regional package</strong>").</li>
+    
+    <li>This lets foreign airlines add flights to <strong>regional airports without consuming</strong> the capped entitlements for the big four.</li>
+    
+    <li>An <strong>Enhanced Regional Package (ERP)</strong> further <strong>rewards services that operate via or beyond</strong> to a non-gateway Australian point with <strong>additional capacity</strong>.</li>
+    
+    <li>Policy goal: <strong>stimulate regional connectivity, tourism and trade</strong>, while easing <strong>congestion at major hubs</strong>.</li>
+    
+    <li>It's embedded in <strong>bilateral air-services treaties</strong> and published through <strong>capacity registers</strong> so airlines can see available rights.</li>
+    
+    <li>Typical regional beneficiaries include airports like <strong>Adelaide, Cairns, Darwin, Gold Coast, Hobart, Canberra</strong> (varies by agreement).</li>
+    
+    <li>It does <strong>not</strong> waive commercial basics: carriers still need <strong>slots</strong>, regulatory approvals, and viable demand.</li>
+    
+    <li><strong>Canadian analogue:</strong> designate <strong>Toronto/Montreal/Vancouver</strong> as gateways; offer <strong>extra, capped rights</strong> (e.g., up to 7/wk) to <strong>Ottawa, Halifax, Winnipeg, Edmonton</strong>, <strong>conditional on codeshare</strong> with a Canadian carrier.</li>
+  </ul>
+</div>
+
+<!-- AUS example French Version -->
+<div class="policy-example" lang="fr">
+  <h3>L'« accès libre aux aéroports régionaux » de l'Australie (explication en 10 points)</h3>
+  <ul>
+    <li>Dans plusieurs accords de services aériens, l'Australie plafonne la capacité à <strong>quatre portes d'entrée (Sydney, Melbourne, Brisbane, Perth)</strong> mais offre un <strong>accès illimité</strong> à <em>tous les autres</em> aéroports internationaux (« <strong>forfait régional</strong> »).</li>
+    
+    <li>Ceci permet aux compagnies aériennes étrangères d'ajouter des vols vers des <strong>aéroports régionaux sans consommer</strong> les droits plafonnés des quatre grandes villes.</li>
+    
+    <li>Un <strong>Forfait régional amélioré (FRA)</strong> <strong>récompense davantage les services qui opèrent via ou au-delà</strong> d'un point australien non-portail avec une <strong>capacité supplémentaire</strong>.</li>
+    
+    <li>Objectif politique : <strong>stimuler la connectivité régionale, le tourisme et le commerce</strong>, tout en réduisant <strong>la congestion aux hubs majeurs</strong>.</li>
+    
+    <li>C'est intégré dans les <strong>traités bilatéraux de services aériens</strong> et publié via des <strong>registres de capacité</strong> pour que les compagnies puissent voir les droits disponibles.</li>
+    
+    <li>Les bénéficiaires régionaux typiques incluent des aéroports comme <strong>Adélaïde, Cairns, Darwin, Gold Coast, Hobart, Canberra</strong> (varie selon l'accord).</li>
+    
+    <li>Cela <strong>n'exempte pas</strong> des bases commerciales : les transporteurs ont encore besoin de <strong>créneaux</strong>, d'approbations réglementaires et d'une demande viable.</li>
+    
+    <li><strong>Analogie canadienne :</strong> désigner <strong>Toronto/Montréal/Vancouver</strong> comme portes d'entrée ; offrir des <strong>droits supplémentaires plafonnés</strong> (p. ex., jusqu'à 7/sem) vers <strong>Ottawa, Halifax, Winnipeg, Edmonton</strong>, <strong>conditionnels au partage de code</strong> avec un transporteur canadien.</li>
+  </ul>
+</div>

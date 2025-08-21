@@ -51,8 +51,8 @@ function trackPDFClick(pdfName, sourceLocation) {
     </a>
   </p>
 </div>
-<!-- AUS example English Version -->
-<div class="policy-example" lang="en">
+<!-- aus policy English Version -->
+<div class="policy-example lang-en">
   <h3>Australia's "Open Access to Regional Airports" (10-line explainer)</h3>
   <ul>
     <li>In many air-services agreements, Australia caps capacity at <strong>four gateways (Sydney, Melbourne, Brisbane, Perth)</strong> but offers <strong>unrestricted access</strong> to <em>all other</em> international airports ("<strong>regional package</strong>").</li>
@@ -73,8 +73,8 @@ function trackPDFClick(pdfName, sourceLocation) {
   </ul>
 </div>
 
-<!-- AUS example French Version -->
-<div class="policy-example" lang="fr">
+<!-- aus policy French Version -->
+<div class="policy-example lang-fr">
   <h3>L'« accès libre aux aéroports régionaux » de l'Australie (explication en 10 points)</h3>
   <ul>
     <li>Dans plusieurs accords de services aériens, l'Australie plafonne la capacité à <strong>quatre portes d'entrée (Sydney, Melbourne, Brisbane, Perth)</strong> mais offre un <strong>accès illimité</strong> à <em>tous les autres</em> aéroports internationaux (« <strong>forfait régional</strong> »).</li>

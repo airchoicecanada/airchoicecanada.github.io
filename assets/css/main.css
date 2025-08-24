@@ -167,3 +167,8 @@ html, body { overflow-x: hidden; }
 .policy-example ul {
   line-height: 1.6;
 }
+
+/* hide site title */
+.page-content .page-heading {
+  display: none;
+}

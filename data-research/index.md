@@ -1,5 +1,5 @@
 ---
-// title: Data & Research
+title: Data & Research
 permalink: /data-research/
 ---
 

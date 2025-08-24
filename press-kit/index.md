@@ -1,4 +1,5 @@
 ---
+title: Press Kit
 permalink: /press-kit/
 ---
 

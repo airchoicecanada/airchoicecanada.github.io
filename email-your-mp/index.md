@@ -5,7 +5,6 @@ permalink: /email-your-mp/
 
 <section class="section">
   <div class="lang-en">
-    <h1>Email Your Member of Parliament</h1>
     <p>Enter your postal code to find your MP and email them about the <em>Secondary City Exemption</em>.</p>
   </div>
   <div class="lang-fr">

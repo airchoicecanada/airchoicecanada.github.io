@@ -4,7 +4,6 @@ permalink: /data-research/
 ---
 
 <div class="lang-en">
-  <h1>Data & Research</h1>
   <p>We’re compiling route-level data and passenger demand for potential long-haul corridors from secondary Canadian cities. This includes leakage to U.S. hubs, seasonality, journey-time and fare baselines, and airport readiness indicators. We’ll publish datasets and visuals here as they’re finalized.</p>
 
   <h2>What’s coming</h2>

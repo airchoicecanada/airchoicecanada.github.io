@@ -4,7 +4,6 @@ permalink: /share-your-story/
 ---
 
 <div class="lang-en">
-  <h1>Share Your Story</h1>
   <p>Tell us how limited long-haul options affect you or your organization. With permission, we may include short quotes in our advocacy.</p>
 
   <form action="https://api.web3forms.com/submit" method="POST">

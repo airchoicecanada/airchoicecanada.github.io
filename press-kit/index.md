@@ -4,8 +4,6 @@ permalink: /press-kit/
 ---
 
 <div class="lang-en">
-  <h1>Press Kit</h1>
-
   <p><strong>One-sentence summary:</strong> AirChoice Canada proposes a narrow, <em>codeshare-only exemption</em> in Canada’s Air Transport Agreements so foreign airlines can exceed bilateral caps <em>only</em> when flying to designated Canadian secondary cities. It improves choice and affordability while keeping long-haul traffic and spend in Canada.</p>
 
   <h2>Fast facts</h2>

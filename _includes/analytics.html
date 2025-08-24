@@ -1,13 +1,46 @@
-  <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga_measurement_id }}"></script>
-  <script>
-    // Respect "Do Not Track" (optional)
-    var dnt = navigator.doNotTrack == "1" || window.doNotTrack == "1" || navigator.msDoNotTrack == "1";
-    if (!dnt) {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      // GA4 anonymizes IP by default; the next option is harmless if left in
-      gtag('config', '{{ site.ga_measurement_id }}', { 'anonymize_ip': true });
-    }
-  </script>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga_measurement_id }}" data-cfasync="false"></script>
+<script data-cfasync="false">
+// Respect "Do Not Track" (optional)
+var dnt = navigator.doNotTrack == "1" || window.doNotTrack == "1" || navigator.msDoNotTrack == "1";
+if (!dnt) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  
+  gtag('config', '{{ site.ga_measurement_id }}', {
+    'anonymize_ip': true
+  });
+}
+</script>
+// Add this function after your existing GA code
+function trackPageView(url, title) {
+  if (typeof gtag !== 'undefined' && !dnt) {
+    gtag('config', '{{ site.ga_measurement_id }}', {
+      'page_title': title,
+      'page_location': url,
+      'anonymize_ip': true
+    });
+  }
+}
+
+// For each navigation link, add click tracking
+document.addEventListener('DOMContentLoaded', function() {
+  // Assuming your header links have a class or are in a specific container
+  const navLinks = document.querySelectorAll('nav a'); // Adjust selector as needed
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Only track internal links
+      if (this.hostname === window.location.hostname) {
+        const url = this.href;
+        const title = this.textContent || this.title || document.title;
+        
+        // Small delay to ensure tracking fires before navigation
+        setTimeout(() => {
+          trackPageView(url, title);
+        }, 100);
+      }
+    });
+  });
+});

@@ -12,8 +12,7 @@ if (!dnt) {
     'anonymize_ip': true
   });
 }
-</script>
-// Add this function after your existing GA code
+
 function trackPageView(url, title) {
   if (typeof gtag !== 'undefined' && !dnt) {
     gtag('config', '{{ site.ga_measurement_id }}', {
@@ -44,3 +43,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+</script>
